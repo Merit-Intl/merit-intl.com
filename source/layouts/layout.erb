@@ -2,9 +2,15 @@
 <html lang="en">
 <head><%= partial "head" %></head>
 <body>
-<header><%= partial "header" %></header>
-<div id="main" role="main"><%= yield %></div>
-<aside><%= partial "aside" %></aside>
-<footer><%= partial "footer" %></footer>
+<div class="wrapper" id="product">
+	<header><%= partial "header" %></header>
+	<div id="main" role="main">
+		<table><tr>
+			<td id="sidebar"><aside><%= partial "aside" %></aside></td>
+			<td id="content"><%= yield %></td>
+		</tr></table>
+	</div>
+		<footer><%= partial "footer" %></footer>
+</div>
 </body>
 </html>

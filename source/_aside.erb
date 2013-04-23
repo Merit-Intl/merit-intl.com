@@ -1,20 +1,96 @@
-<h2>Recent Articles</h2>
-<ol>
-	<% blog.articles[0...10].each do |article| %>
-	<li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
-	<% end %>
-</ol>
+<table border="0" cellpadding="2" cellspacing="1" bgcolor="#000000" class="navigation">
+  <tr bgcolor="#46263E">
+   <td class="title">
+    <div align="center">
+     <b>:: NAVIGATION :.</b>
+    </div>
+   </td>
+  </tr>
 
-<h2>Tags</h2>
-<ol>
-	<% blog.tags.each do |tag, articles| %>
-	<li><%= link_to tag, tag_path(tag) %> (<%= articles.size %>)</a></li>
-	<% end %>
-</ol>
+  <tr bgcolor="#673A5C">
+   <td class="small" align="center" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'">
+    <div align="left">
+     <a href="http://merit-intl.com/merit/">&#8226; Home</a>
+    </div>
+   </td>
+  </tr>
 
-<h2>By Year</h2>
-<ol>
-	<% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
-	<li><%= link_to year, blog_year_path(year) %> (<%= articles.size %>)</a></li>
-	<% end %>
-</ol>
+  <tr bgcolor="#673A5C">
+   <td class="small" align="center" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'">
+    <div align="left">
+     <a href="http://merit-intl.com/merit/news.html">&#8226; News</a>
+    </div>
+   </td>
+  </tr>
+
+  <tr bgcolor="#673A5C">
+   <td class="navlist" align="left" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'" bgcolor="#673A5C"><a href="http://merit-intl.com/merit/vendor.html" onmouseover="dropdownmenu(this, event, menu1, '135px')" onmouseout="delayhidemenu()">&#8226; Vendor Listing A-P</font></a></td>
+  </tr>
+
+  <tr bgcolor="#673A5C">
+   <td class="navlist" align="left" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'" bgcolor="#673A5C"><a href="http://merit-intl.com/merit/vendor.html" onmouseover="dropdownmenu(this, event, menu2, '135px')" onmouseout="delayhidemenu()">&#8226; Vendor Listing P-Z</a></td>
+  </tr>
+
+  <tr bgcolor="#673A5C">
+   <td class="small" align="center" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'">
+    <div align="left">
+     <a href="http://merit-intl.com/merit/terms.html">&#8226; Terms &amp; Agreement</a>
+    </div>
+   </td>
+  </tr>
+
+  <tr bgcolor="#673A5C">
+   <td class="small" align="center" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'">
+    <div align="left">
+     <a href="http://merit-intl.com/merit/accountset.html">&#8226; Account Setup &amp; Procedure</a>
+    </div>
+   </td>
+  </tr>
+
+  <tr bgcolor="#673A5C">
+   <td class="small" align="center" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'" bgcolor="#673A5C">
+    <div align="left">
+     <a href="http://merit-intl.com/merit/retailer%20request.html">&#8226; Dealer Locator Form</a>
+    </div>
+   </td>
+  </tr>
+
+  <tr bgcolor="#673A5C">
+   <td class="small" align="center" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'" bgcolor="#673A5C">
+    <div align="left">
+     <a href="http://merit-intl.com/merit/trade.html">&#8226; Toy/Trade Shows</a>
+    </div>
+   </td>
+  </tr>
+
+  <tr bgcolor="#673A5C">
+   <td class="small" align="center" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'" bgcolor="#673A5C">
+    <div align="left">
+     <a href="http://merit-intl.com/merit/services.html">&#8226; Services</a>
+    </div>
+   </td>
+  </tr>
+
+  <tr bgcolor="#673A5C">
+   <td class="small" align="center" onmouseover="this.style.backgroundColor='#46263E';" onmouseout="this.style.backgroundColor='#673A5C'" bgcolor="#673A5C">
+    <div align="left">
+     <a href="http://merit-intl.com/merit/links.html">&#8226; Links</a>
+    </div>
+   </td>
+  </tr>
+ </table>
+
+<p>
+ <img src="http://merit-intl.com/image/construction/meritlogocon.jpg" width="140" border="0" height="46">
+ <br><br>
+ <font color="#000000">17421-B East Gale Ave.<br>
+ City of Industry, CA 91748<br>
+ TEL: (626) 912-2212<br>
+ FAX: (626) 912-2202</font>
+</p>
+
+<p><strong>Find Us On:</strong></p>
+<div style=" display: block; margin-left: auto; margin-right: auto; width:80%;vertical-align: middle;">
+	<div>Twitter: <div style="float:right;text-align:right;"><a href="https://twitter.com/Merit_Int" class="twitter-follow-button" style="vertical-align:top;" data-show-count="false" data-show-screen-name="false" data-dnt="true">Follow</a></div></div>
+	<div style="padding-top:5em;display:inline;vertical-align:middle;">Facebook: <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.merit-intl.com&amp;send=false&amp;layout=standard&amp;width=45&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=443277199026077" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:25px;vertical-align:bottom; float:right;" allowTransparency="true"></iframe></div>
+</div>
