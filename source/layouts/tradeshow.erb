@@ -1,4 +1,10 @@
 <% wrap_layout "layout" do %>
-<h1>Tradeshow</h1>
+<h1><% article.title %></h1>
 <%= yield %>
+<div class="imageset">
+	<% Dir.glob("./*.jpg").sort.each do |entry| %>
+	   <%= entry %><br/>
+	   <a class="group3" href="./<%= entry %>"><img src="./<%= entry %>.jpg" alt="Product Image" width="130"></a>
+	<% end %>
+</div>
 <%end%>
