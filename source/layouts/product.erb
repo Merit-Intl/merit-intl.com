@@ -1,0 +1,18 @@
+<% wrap_layout "layout" do %>
+<%
+# Truncating 10 - "blog/YEAR/" 
+%>
+<% item_no = current_page.path.chomp("/index.html")[10,99] %>
+<h1><%= current_article.title %></h1>
+<%= yield %>
+<div class="imageset">
+	<%
+	# Image files must be renamed to article (not page) title to avoid conflicts and complications with names ending in 's'. Also if other image files were include for any reason.
+	# Using a regular expression to find the last occurrence of a slash would be preferred over just removing "index.html"
+	%>
+	<% Dir.glob("source/"+current_page.path.chomp("index.html")+"*s.{jpg,JPG,gif,GIF,png,PNG}").sort.each do |entry| %>
+		<% entry = entry.slice(18+item_no.length,150) %>
+		<a class="group3" href="./<%= entry %>"><img src="./<%= entry %>.jpg" alt="Product Image" width="130"></a><br/>
+	<% end %>
+</div>
+<%end%>
