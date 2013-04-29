@@ -12,7 +12,7 @@
 	%>
 	<% Dir.glob("source/"+current_page.path.chomp("index.html")+"*s.{jpg,JPG,gif,GIF,png,PNG}").sort.each do |entry| %>
 		<% entry = entry.slice(18+item_no.length,150) %>
-		<a class="group3" href="./<%= entry %>"><img src="./<%= entry %>.jpg" alt="Product Image" width="130"></a><br/>
+		<a class="group3" href="./<%= entry[0,item_no.length]%><%=entry[item_no.length+2,99]%>"><img src="./<%= entry %>" alt="Product Image" width="130"></a><br/>
 	<% end %>
 </div>
 <%end%>
