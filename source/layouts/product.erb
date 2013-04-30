@@ -11,8 +11,8 @@
 	# Using a regular expression to find the last occurrence of a slash would be preferred over just removing "index.html"
 	%>
 	<% Dir.glob("source/"+current_page.path.chomp("index.html")+"*s.{jpg,JPG,gif,GIF,png,PNG}").sort.each do |entry| %>
-		<% entry = entry.slice(18+item_no.length,150) %>
-		<a class="group3" href="./<%= entry[0,item_no.length]%><%=entry[item_no.length+2,99]%>"><img src="./<%= entry %>" alt="Product Image" width="130"></a><br/>
+		<% imagefile=entry[18+item_no.length,150] %>
+		<a class="group3" href="/<%= current_page.path.chomp("index.html")+imagefile[0,imagefile.length-5]+imagefile[imagefile.length-4,imagefile.length]%>"><img src="/<%= current_page.path.chomp("index.html")+imagefile %>" alt="Product Image" width="130"></a>
 	<% end %>
 </div>
 <%end%>

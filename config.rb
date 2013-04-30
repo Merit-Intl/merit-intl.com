@@ -13,9 +13,9 @@ require 'yaml'
 Time.zone = "America/Los_Angeles"
 
 activate :blog do |blog|
-  # blog.prefix = "blog"
-  # blog.permalink = ":year/:month/:day/:title.html"
-  blog.sources = "blog/:year/:title/index.html"
+  blog.prefix = "item"
+  blog.permalink = ":title/"
+  blog.sources = ":year/:title/index.html"
   # blog.taglink = "tags/:tag.html"
   # blog.layout = "layout"
   # blog.summary_separator = /(READMORE)/
