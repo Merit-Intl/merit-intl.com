@@ -17,7 +17,7 @@ activate :blog do |blog|
   blog.permalink = ":title/"
   blog.sources = ":year/:title/index.html"
   # blog.taglink = "tags/:tag.html"
-  # blog.layout = "layout"
+  blog.layout = "item"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = ":year.html"
@@ -111,4 +111,6 @@ configure :build do
   
   # Or use a different image path
   # set :http_path, "/Content/images/"
+  
+  activate :directory_indexes
 end

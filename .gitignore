@@ -15,3 +15,6 @@
 *.class
 *.pyc
 *.pyo
+
+# Ignore actual post (will probably change this as git would serve as remote backup)
+/source/item/2013
