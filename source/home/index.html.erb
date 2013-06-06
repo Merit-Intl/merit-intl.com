@@ -1,0 +1,39 @@
+---
+layout: pagable
+pageable: true
+per_page: 24
+title: Home
+---
+
+<% page_articles.each_with_index do |article, i| %>
+ <% if i % 3 == 0 %>
+  <div style="clear: both;">
+  <% for ix in 0..2 %>
+   <% if page_articles[i+ix] != nil %>
+    <div style="width: 33%; float:left;text-align: center;margin: .5em 0;bottom: 0;">
+     <p style="text-align: center;margin:0 .5em;padding:0;">
+     <% link_to '/'+page_articles[i+ix].path.chomp("index.html"), :style => 'text-decoration: none;color:inherit;' do %>
+      <%=page_articles[i+ix].slug%><br/>
+      <span style="color:red">
+		<% if page_articles[i+ix].data.restock == 1 %>
+		 Restocking 
+		<% else %>
+		 Expect by 
+		<% end %>
+		<%= page_articles[i+ix].data.expected %></span></p>
+     <% end %>
+     <% imgfile = Dir.glob("source/"+page_articles[i+ix].path.chomp("index.html")+"*s.{jpg,JPG,gif,GIF,png,PNG}") %>
+     <% link_to '/'+page_articles[i+ix].path.chomp("index.html") do %>
+      <%= image_tag imgfile[0].to_s.sub("source",""), :alt => 'Main Product Image', :style=>'border:2px solid black;max-height:150px;max-width:150px' %>
+     <% end %>
+     <p style="text-align: center;margin:0 .5em;padding:0; vertical-align: bottom;">
+     <% link_to '/'+page_articles[i+ix].path.chomp("index.html"), :style => 'text-decoration: none;color:inherit;' do %>
+      <strong><%=page_articles[i+ix].title%></strong>
+     <% end %>
+     </p>
+    </div>
+   <% end %>
+  <% end %>
+  </div>
+ <% end %>
+<% end %>
