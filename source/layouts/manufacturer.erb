@@ -1,0 +1,20 @@
+<% wrap_layout "layout" do %>
+	<h2><%= current_page.data.title %></h2>
+	<ol style="padding-left:1em;list-style-type:none;">
+	
+	<% blog.tags["DAM Toys"].sort{|a,b| b.slug<=>a.slug}.each do |article| %>
+
+	  <li>
+		<div style="clear: both;">
+			<div style="width: 5em;float:left;">
+				<% link_to article do %>
+					<%= tag :img, :style => "max-height:5em;max-weight:5em;vertical-align:text-top; padding-bottom: 1em;", :src => Dir.glob("source/"+article.path.chomp("index.html")+"*s.{jpg,JPG,gif,GIF,png,PNG}").sort.first.sub(source, '..' ) %>
+				<% end %>
+			</div>
+			<strong><%= link_to article.slug, article %></strong>&nbsp;&nbsp;<%= article.data.expected ? article.data.expected : '' %> <br/>
+			<%= link_to article.title, article %>
+		</div>
+	  </li>
+	<% end %>
+	</ol>
+<%end%>

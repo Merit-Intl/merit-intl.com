@@ -2,11 +2,13 @@
 <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
 <meta name="author" content="<%= @website.title %>" />
 
+<title>
 <% if current_article && current_article.title %>
-	<title><%= current_article.title %></title>
- <% else %>
-	<title><%= @website.title %></title>
+	<%= current_article.title %>&nbsp;|&nbsp;
+ <% elsif current_page.data.title %>
+	<%= current_page.data.title %>&nbsp;|&nbsp;
 <% end %>
+<%= @website.title %></title>
 
 <link rel="stylesheet" type="text/css" href="http://merit-intl.com/template/2012-08-15/product.css" />
 <link rel="stylesheet" type="text/css" href="http://merit-intl.com/template/2012-08-15/default.css" />
@@ -15,11 +17,13 @@
 %>
 <style>
 	#main {border: 3px solid #673A5C}
-	#main > table {width: 100%; padding: 0; margin:0;}
-	#sidebar {width: 200px;}
-	aside {width: 200px; display:inline;}
+	#main > table {width: 100%; padding: 0; margin:0;border: 3px solid gray;}
+	#sidebar {border-right: 3px solid gray; width: 185px;}
+	aside {width: 185px; display:inline;}
 	#content {display:inline;margin:0;padding:0;vertical-align: top;}
 	#content h1 {margin:0}
+	#item {padding: 0 4px;}
+	.imageset {clear: both; padding-top: 1em;}
 </style>
 
 <!-- Colorbox -->

@@ -1,0 +1,18 @@
+<% wrap_layout "layout" do %>
+
+<% if paginate %>
+ <p style="clear:both">Page <%= page_number %> of <%= num_pages %></p>
+ <% if prev_page %>
+  <p style="clear:both"><%= link_to 'Previous page', prev_page %></p>
+ <% end %>
+<% end %>
+
+<%= yield %>
+
+<% if paginate %>
+ <% if next_page %>
+  <p style="clear:both"><%= link_to 'Next page', next_page %></p>
+ <% end %>
+<% end %>
+
+<% end %>

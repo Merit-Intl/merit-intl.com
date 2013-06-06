@@ -5,6 +5,7 @@ require 'yaml'
 ###
 
 @website = OpenStruct.new(YAML::load_file(File.dirname(__FILE__) + "/config.yaml")[:website])
+activate :directory_indexes
 
 ###
 # Blog settings
@@ -13,28 +14,31 @@ require 'yaml'
 Time.zone = "America/Los_Angeles"
 
 activate :blog do |blog|
-  blog.prefix = "item"
-  blog.permalink = ":title/"
-  blog.sources = ":year/:title/index.html"
-  # blog.taglink = "tags/:tag.html"
+  blog.prefix = ""
+  blog.permalink = "item/:title/index.html"
+  blog.sources = "item/:title/index.html"
+  blog.taglink = "/tags/:tag.html"
   blog.layout = "item"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
-  # blog.year_link = ":year.html"
-  # blog.month_link = ":year/:month.html"
-  # blog.day_link = ":year/:month/:day.html"
+  blog.year_link = "/:year.html"
+  blog.month_link = "/:year/:month.html"
+  blog.day_link = "/:year/:month/:day.html"
   # blog.default_extension = ".markdown"
 
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
 
-  # blog.paginate = true
+  blog.paginate = true
   # blog.per_page = 10
-  # blog.page_link = "page/:num"
+  blog.page_link = ":num"
 end
 
 page "/feed.xml", :layout => false
-
+ignore 'thumbs.db'
+ignore "Thumbs.db"
+ignore "/item/1999/*"
+ignore "/item/2013/*"
 ### 
 # Compass
 ###
@@ -85,18 +89,19 @@ page "/feed.xml", :layout => false
 # end
 
 set :css_dir, 'stylesheets'
-
 set :js_dir, 'javascripts'
-
 set :images_dir, 'images'
 
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  # activate :minify_css
-  
+  activate :minify_css
+
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
+
+  # Minify HTML on build
+  activate :minify_html
   
   # Enable cache buster
   # activate :cache_buster
@@ -112,5 +117,4 @@ configure :build do
   # Or use a different image path
   # set :http_path, "/Content/images/"
   
-  activate :directory_indexes
 end
